@@ -1,0 +1,23 @@
+CREATE TABLE database_connections (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    description VARCHAR(255),
+    database_type VARCHAR(50) NOT NULL,
+    host VARCHAR(255) NOT NULL,
+    port INT NOT NULL,
+    database_name VARCHAR(255) NOT NULL,
+    schema_name VARCHAR(255),
+    username VARCHAR(100) NOT NULL,
+    encrypted_password VARCHAR(255) NOT NULL,
+    jdbc_url VARCHAR(2048) NOT NULL,
+    ssl_enabled BOOLEAN DEFAULT FALSE,
+    connection_timeout INTEGER DEFAULT 30000,
+    idle_timeout INTEGER DEFAULT 600000,
+    max_lifetime INTEGER DEFAULT 1800000,
+    maximum_pool_size INTEGER DEFAULT 10,
+    minimum_idle INTEGER DEFAULT 2,
+    validation_query VARCHAR(255) DEFAULT 'SELECT 1',
+    active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
